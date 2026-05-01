@@ -9,3 +9,11 @@ class CalculatorBase:
             '3': 'Multiplication',
             '4': 'Division'
         }
+        
+        def get_validated_number(self, prompt):
+        """Ensures input is numeric using try-except."""
+        while True:
+            try:
+                return float(input(prompt))
+            except ValueError:
+                print("Invalid Input: Please enter a numeric value.")
