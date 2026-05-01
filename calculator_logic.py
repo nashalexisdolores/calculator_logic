@@ -29,3 +29,8 @@ class CalculatorBase:
                 return choice
             print("Invalid Selection: Choose 1-4.")
 
+            class SimpleAppCalculator(CalculatorBase):
+    """Derived class demonstrating inheritance."""
+    def __init__(self):
+        super().__init__()
+
