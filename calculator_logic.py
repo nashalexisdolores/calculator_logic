@@ -47,3 +47,11 @@ class CalculatorBase:
             if num2 == 0:
                 raise ZeroDivisionError("Runtime Error: Cannot divide by zero.")
             return num1 / num2
+        
+        def ask_to_continue(self):
+        """Asks user if they want to repeat or exit."""
+        while True:
+            ui = input("\nTry again? (yes/no): ").strip().lower()
+            if ui in ['yes', 'y']: return True
+            if ui in ['no', 'n']: return False
+            print("Please enter 'yes' or 'no'.")
