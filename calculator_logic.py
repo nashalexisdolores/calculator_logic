@@ -42,3 +42,8 @@ class CalculatorBase:
             return num1 - num2
         elif choice == '3':
             return num1 * num2
+        
+        elif choice == '4':
+            if num2 == 0:
+                raise ZeroDivisionError("Runtime Error: Cannot divide by zero.")
+            return num1 / num2
