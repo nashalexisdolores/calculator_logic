@@ -34,3 +34,11 @@ class CalculatorBase:
     def __init__(self):
         super().__init__()
 
+        def perform_calculation(self, choice, num1, num2):
+        """Performs calculation based on selection."""
+        if choice == '1':
+            return num1 + num2
+        elif choice == '2':
+            return num1 - num2
+        elif choice == '3':
+            return num1 * num2
