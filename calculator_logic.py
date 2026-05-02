@@ -55,3 +55,7 @@ class CalculatorBase:
             if ui in ['yes', 'y']: return True
             if ui in ['no', 'n']: return False
             print("Please enter 'yes' or 'no'.")
+
+            from calculator_logic import SimpleAppCalculator
+import sys
+
