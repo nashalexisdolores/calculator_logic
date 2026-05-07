@@ -1,61 +1,27 @@
-import sys
-
-class CalculatorBase:
-    """Base class for shared calculator properties."""
+class CalculatorParent:
     def __init__(self):
-        self.operations_menu = {
-            '1': 'Addition',
-            '2': 'Subtraction',
-            '3': 'Multiplication',
-            '4': 'Division'
-        }
-        
-        def get_validated_number(self, prompt):
-        """Ensures input is numeric using try-except."""
-        while True:
-            try:
-                return float(input(prompt))
-            except ValueError:
-                print("Invalid Input: Please enter a numeric value.")
+        self.app_title = "CMPE-103 Calculator App"
 
-                def select_operation(self):
-        """Displays menu and returns validated choice."""
-        while True:
-            print("\n--- Simple App Calculator ---")
-            for key, value in self.operations_menu.items():
-                print(f"{key}. {value}")
-            choice = input("Select operation (1-4): ")
-            if choice in self.operations_menu:
-                return choice
-            print("Invalid Selection: Choose 1-4.")
+    def execute_math(self, operation, n1, n2):
+        if operation == "Addition":
+            return n1 + n2
+        elif operation == "Subtraction":
+            return n1 - n2
+        elif operation == "Multiplication":
+            return n1 * n2
+        elif operation == "Division":
+            if n2 == 0:
+                raise ZeroDivisionError("Math Error: Cannot divide by zero!")
+            return n1 / n2
 
-            class SimpleAppCalculator(CalculatorBase):
-    """Derived class demonstrating inheritance."""
+class CalculatorChild(CalculatorParent):
     def __init__(self):
         super().__init__()
 
-        def perform_calculation(self, choice, num1, num2):
-        """Performs calculation based on selection."""
-        if choice == '1':
-            return num1 + num2
-        elif choice == '2':
-            return num1 - num2
-        elif choice == '3':
-            return num1 * num2
-        
-        elif choice == '4':
-            if num2 == 0:
-                raise ZeroDivisionError("Runtime Error: Cannot divide by zero.")
-            return num1 / num2
-        
-        def ask_to_continue(self):
-        """Asks user if they want to repeat or exit."""
-        while True:
-            ui = input("\nTry again? (yes/no): ").strip().lower()
-            if ui in ['yes', 'y']: return True
-            if ui in ['no', 'n']: return False
-            print("Please enter 'yes' or 'no'.")
-
-            from calculator_logic import SimpleAppCalculator
-import sys
-
+    def process_calculation(self, op, val1, val2):
+        try:
+            num1 = float(val1)
+            num2 = float(val2)
+            return self.execute_math(op, num1, num2)
+        except ValueError:
+            raise ValueError("Input Error: Please enter valid numbers.")
